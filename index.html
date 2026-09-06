@@ -12,6 +12,11 @@
   .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
   #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
   @media(max-width:800px){.printer{grid-template-columns:1fr}}
+  .printer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
+  .printer label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px}
+  .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
+  #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
+  @media(max-width:800px){.printer{grid-template-columns:1fr}}
   <style>
   :root{
     --bg:#07070a; --panel:#101018; --ink:#f4efe6; --mute:#9a9388;
@@ -90,7 +95,7 @@
     <p class="lead" data-fr>Pixel-art Tapes. Unique palettes. Inscribed on Ordihood. Permanent artifacts.</p>
     <div class="row">
       <a class="btn" href="https://www.ordihood.art/collections/0x5e670cf56ff645242c076e142ce6409c42aee155231006c22130362ee67fd55e" target="_blank" rel="noopener">View collection</a>
-      <a class="btn ghost" href="#engine">Use the engine</a>
+      <a class="btn ghost" href="#engine">Print a tape</a>
     </div>
     <div class="stats">
       <div class="stat"><b>101</b><span>Tapes</span></div>
