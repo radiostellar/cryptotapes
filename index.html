@@ -7,17 +7,7 @@
 <meta name="description" content="101 artists. 101 tapes. One permanent archive on Robinhood Chain." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  .printer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
-  .printer label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px}
-  .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
-  #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
-  @media(max-width:800px){.printer{grid-template-columns:1fr}}
-  .printer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
-  .printer label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px}
-  .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
-  #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
-  @media(max-width:800px){.printer{grid-template-columns:1fr}}
-  <style>
+<style>
   :root{
     --bg:#07070a; --panel:#101018; --ink:#f4efe6; --mute:#9a9388;
     --line:#23232e; --accent:#00c805; --gold:#d19c00;
@@ -33,7 +23,7 @@
   .brand span{color:var(--accent)}
   nav ul{display:flex;gap:22px;list-style:none;font-size:12px;text-transform:uppercase}
   nav ul a{color:var(--mute)}
-  .btn{display:inline-block;border:1px solid var(--accent);color:#07070a;background:var(--accent);padding:10px 16px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  .btn{display:inline-block;border:1px solid var(--accent);color:#07070a;background:var(--accent);padding:10px 16px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;cursor:pointer}
   .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
   .hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
   .kicker{color:var(--accent);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
@@ -55,17 +45,15 @@
   .step{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px;border:1px solid var(--line);background:var(--panel)}
   .num{font-family:Syne,sans-serif;font-size:28px;color:var(--gold)}
   .copy{max-width:720px}
-  .tape{width:100%;aspect-ratio:3/2;border:3px solid #111;position:relative}
-  .tape:before{content:"";position:absolute;left:12%;right:12%;top:16%;height:18%;background:#f8f0d8}
-  .tape:after{content:"";position:absolute;left:18%;right:18%;top:42%;height:28%;background:rgba(20,20,24,.55);border:2px solid #0a0a0c}
   footer{padding:40px 0;color:var(--mute);font-size:12px}
   .lang{font-size:11px;color:var(--mute);cursor:pointer;border:1px solid var(--line);padding:6px 8px;background:transparent}
-  [data-fr]{display:none}
-  html.fr [data-en]{display:none}
-  html.fr [data-fr]{display:contents}
+  .printer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
+  .printer label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px}
+  .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
+  #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
   @media(max-width:800px){
     nav ul{display:none}
-    .stats,.grid3{grid-template-columns:1fr 1fr}
+    .stats,.grid3,.printer{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -77,11 +65,10 @@
       <ul>
         <li><a href="#collection">Collection</a></li>
         <li><a href="#process">Process</a></li>
-        <li><a href="#engine">Engine</a></li>
+        <li><a href="#engine">Print</a></li>
         <li><a href="#mint">Mint</a></li>
       </ul>
       <div class="row">
-        <button class="lang" id="langBtn" type="button">FR</button>
         <a class="btn" href="https://www.ordihood.art/collections/0x5e670cf56ff645242c076e142ce6409c42aee155231006c22130362ee67fd55e" target="_blank" rel="noopener">Ordihood</a>
       </div>
     </nav>
@@ -91,8 +78,7 @@
   <div class="wrap">
     <div class="kicker">Sub-10,000 inscription · Robinhood Chain</div>
     <h1>101 artists.<br>101 tapes.<br><em>One archive.</em></h1>
-    <p class="lead" data-en>Pixel-art compact tapes. Unique palettes. Inscribed on Ordihood — permanent artifacts, not files on a server.</p>
-    <p class="lead" data-fr>Pixel-art Tapes. Unique palettes. Inscribed on Ordihood. Permanent artifacts.</p>
+    <p class="lead">Pixel-art compact tapes. Unique palettes. Inscribed on Ordihood — permanent artifacts, not files on a server.</p>
     <div class="row">
       <a class="btn" href="https://www.ordihood.art/collections/0x5e670cf56ff645242c076e142ce6409c42aee155231006c22130362ee67fd55e" target="_blank" rel="noopener">View collection</a>
       <a class="btn ghost" href="#engine">Print a tape</a>
@@ -109,7 +95,7 @@
   <div class="wrap">
     <h2>The collection</h2>
     <div class="copy"><p>101 tape archive. One artist, one palette, one label, one Robinhood feather. High-fidelity pixel art on-chain.</p></div>
-        <div class="grid3" style="margin-top:28px">
+    <div class="grid3" style="margin-top:28px">
       <div class="card">
         <img src="001.png" alt="CryptoTapes 001 The Beatles" style="width:100%;height:auto;image-rendering:pixelated" />
         <h3 style="margin-top:14px">The Beatles</h3>
@@ -125,7 +111,7 @@
         <h3 style="margin-top:14px">Michael Jackson</h3>
         <p>#003</p>
       </div>
-        </div>
+    </div>
   </div>
 </section>
 <section id="process">
@@ -178,20 +164,11 @@
   <div class="wrap">CryptoTapes · Ordihood · Robinhood Chain</div>
 </footer>
 <script>
-  const btn = document.getElementById("langBtn");
-  if (btn) {
-    btn.onclick = () => {
-      document.documentElement.classList.toggle("fr");
-      btn.textContent = document.documentElement.classList.contains("fr") ? "EN" : "FR";
-    };
-  }
-
   const canvas = document.getElementById("tapeCanvas");
   const ctx = canvas.getContext("2d");
   const nameInput = document.getElementById("tapeName");
   const shellInput = document.getElementById("tapeShell");
   let base = new Image();
-  base.crossOrigin = "anonymous";
 
   function drawTape() {
     const w = canvas.width;
@@ -204,7 +181,7 @@
     }
     const name = (nameInput.value || "CryptoTapes").slice(0, 18);
     ctx.fillStyle = "#101018";
-    ctx.font = "600 28px 'IBM Plex Mono', monospace";
+    ctx.font = "600 28px IBM Plex Mono, monospace";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(name, w * 0.52, h * 0.22);
@@ -212,14 +189,13 @@
 
   function loadShell() {
     base = new Image();
-    base.crossOrigin = "anonymous";
     base.onload = drawTape;
     base.src = shellInput.value;
   }
 
   nameInput.addEventListener("input", drawTape);
   shellInput.addEventListener("change", loadShell);
-  document.getElementById("exportTape").onclick = () => {
+  document.getElementById("exportTape").onclick = function () {
     drawTape();
     const a = document.createElement("a");
     a.href = canvas.toDataURL("image/png");
