@@ -7,7 +7,12 @@
 <meta name="description" content="101 artists. 101 tapes. One permanent archive on Robinhood Chain." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-<style>
+  .printer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
+  .printer label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px}
+  .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
+  #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
+  @media(max-width:800px){.printer{grid-template-columns:1fr}}
+  <style>
   :root{
     --bg:#07070a; --panel:#101018; --ink:#f4efe6; --mute:#9a9388;
     --line:#23232e; --accent:#00c805; --gold:#d19c00;
@@ -131,8 +136,28 @@
 </section>
 <section id="engine">
   <div class="wrap">
-    <h2>The tape engine</h2>
-    <div class="copy"><p>One master PNG. One palette list. Batch export. After mint, the tool can be opened to others.</p></div>
+    <h2>Print a tape</h2>
+    <div class="copy">
+      <p>Type a name. Pick a shell. Export a PNG. Unofficial preview — not an inscription.</p>
+    </div>
+    <div class="printer">
+      <div>
+        <label for="tapeName">Label</label>
+        <input id="tapeName" maxlength="18" value="CryptoTapes" />
+        <label for="tapeShell">Shell</label>
+        <select id="tapeShell">
+          <option value="001.png">Blue</option>
+          <option value="002.png">Gold</option>
+          <option value="003.png">Purple</option>
+        </select>
+        <div class="row" style="margin-top:18px">
+          <button class="btn" id="exportTape" type="button">Export PNG</button>
+        </div>
+      </div>
+      <div>
+        <canvas id="tapeCanvas" width="864" height="576"></canvas>
+      </div>
+    </div>
   </div>
 </section>
 <section id="mint">
@@ -149,10 +174,54 @@
 </footer>
 <script>
   const btn = document.getElementById("langBtn");
-  btn.onclick = () => {
-    document.documentElement.classList.toggle("fr");
-    btn.textContent = document.documentElement.classList.contains("fr") ? "EN" : "FR";
+  if (btn) {
+    btn.onclick = () => {
+      document.documentElement.classList.toggle("fr");
+      btn.textContent = document.documentElement.classList.contains("fr") ? "EN" : "FR";
+    };
+  }
+
+  const canvas = document.getElementById("tapeCanvas");
+  const ctx = canvas.getContext("2d");
+  const nameInput = document.getElementById("tapeName");
+  const shellInput = document.getElementById("tapeShell");
+  let base = new Image();
+  base.crossOrigin = "anonymous";
+
+  function drawTape() {
+    const w = canvas.width;
+    const h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = "#0b0b10";
+    ctx.fillRect(0, 0, w, h);
+    if (base.complete && base.naturalWidth) {
+      ctx.drawImage(base, 0, 0, w, h);
+    }
+    const name = (nameInput.value || "CryptoTapes").slice(0, 18);
+    ctx.fillStyle = "#101018";
+    ctx.font = "600 28px 'IBM Plex Mono', monospace";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(name, w * 0.52, h * 0.22);
+  }
+
+  function loadShell() {
+    base = new Image();
+    base.crossOrigin = "anonymous";
+    base.onload = drawTape;
+    base.src = shellInput.value;
+  }
+
+  nameInput.addEventListener("input", drawTape);
+  shellInput.addEventListener("change", loadShell);
+  document.getElementById("exportTape").onclick = () => {
+    drawTape();
+    const a = document.createElement("a");
+    a.href = canvas.toDataURL("image/png");
+    a.download = "cryptotapes-preview.png";
+    a.click();
   };
+  loadShell();
 </script>
 </body>
 </html>
