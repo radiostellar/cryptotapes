@@ -6,51 +6,76 @@
 <title>CryptoTapes — Tapes for Ethernity</title>
 <meta name="description" content="101 artists. 101 tapes. One permanent archive on Robinhood Chain." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#07070a; --panel:#101018; --ink:#f4efe6; --mute:#9a9388;
-    --line:#23232e; --accent:#00c805; --gold:#d19c00;
+    --bg:#000000;
+    --panel:#120B0B;
+    --ink:#F8F8F8;
+    --mute:#8890C0;
+    --line:#203850;
+    --accent:#00C805;
+    --blue:#2858F8;
+    --gold:#D19C00;
+    --red:#F83818;
+    --cream:#FFE468;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Mono",monospace;line-height:1.55}
   a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
+  a:hover{color:var(--cream)}
   .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  header{position:sticky;top:0;z-index:20;background:rgba(7,7,10,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  header{
+    position:sticky;top:0;z-index:20;
+    background:rgba(0,0,0,.92);
+    border-bottom:2px solid var(--blue);
+  }
   nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{font-family:Syne,sans-serif;font-weight:800}
+  .brand{font-family:Syne,sans-serif;font-weight:800;letter-spacing:.04em}
   .brand span{color:var(--accent)}
   nav ul{display:flex;gap:22px;list-style:none;font-size:12px;text-transform:uppercase}
   nav ul a{color:var(--mute)}
-  .btn{display:inline-block;border:1px solid var(--accent);color:#07070a;background:var(--accent);padding:10px 16px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;cursor:pointer}
-  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-  .hero{padding:88px 0 72px;border-bottom:1px solid var(--line)}
-  .kicker{color:var(--accent);font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px}
-  h1{font-family:Syne,sans-serif;font-size:clamp(42px,8vw,84px);line-height:.9;margin-bottom:22px}
+  nav ul a:hover{color:var(--ink);text-decoration:none}
+  .btn{
+    display:inline-block;border:2px solid var(--accent);color:#000;
+    background:var(--accent);padding:10px 16px;font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;font-weight:700;cursor:pointer;
+  }
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--blue)}
+  .hero{
+    padding:88px 0 72px;border-bottom:2px solid var(--blue);
+    background:
+      radial-gradient(700px 320px at 90% -20%, rgba(40,88,248,.35), transparent 60%),
+      radial-gradient(520px 240px at 0% 110%, rgba(248,56,24,.22), transparent 55%),
+      #000;
+  }
+  .kicker{color:var(--accent);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+  h1{font-family:Syne,sans-serif;font-size:clamp(42px,8vw,84px);line-height:.9;margin-bottom:22px;letter-spacing:-.03em}
   h1 em{font-style:normal;color:var(--gold)}
   .lead{max-width:640px;color:var(--mute);font-size:15px;margin-bottom:28px}
   .row{display:flex;gap:12px;flex-wrap:wrap}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
-  .stat{background:var(--panel);padding:22px}
-  .stat b{display:block;font-family:Syne,sans-serif;font-size:28px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--blue);border:2px solid var(--blue);margin-top:48px}
+  .stat{background:#120B0B;padding:22px}
+  .stat b{display:block;font-family:Syne,sans-serif;font-size:28px;color:var(--cream)}
   .stat span{color:var(--mute);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
   h2{font-family:Syne,sans-serif;font-size:36px;margin-bottom:14px}
   h3{font-family:Syne,sans-serif;font-size:20px;margin-bottom:8px}
-  section{padding:80px 0;border-bottom:1px solid var(--line)}
+  section{padding:80px 0;border-bottom:2px solid var(--line)}
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .card{background:var(--panel);border:1px solid var(--line);padding:22px}
+  .card{background:var(--panel);border:2px solid var(--line);padding:18px}
   .card p,.copy p,.step p{color:var(--mute);font-size:13px}
   .steps{display:grid;gap:14px}
-  .step{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px;border:1px solid var(--line);background:var(--panel)}
+  .step{display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px;border:2px solid var(--line);background:var(--panel)}
   .num{font-family:Syne,sans-serif;font-size:28px;color:var(--gold)}
   .copy{max-width:720px}
-  footer{padding:40px 0;color:var(--mute);font-size:12px}
-  .lang{font-size:11px;color:var(--mute);cursor:pointer;border:1px solid var(--line);padding:6px 8px;background:transparent}
+  footer{padding:40px 0;color:var(--mute);font-size:12px;border-top:2px solid var(--blue)}
   .printer{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
   .printer label{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:14px 0 6px}
-  .printer input,.printer select{width:100%;background:#0b0b10;border:1px solid var(--line);color:var(--ink);padding:10px;font-family:inherit}
-  #tapeCanvas{width:100%;height:auto;background:#0b0b10;border:1px solid var(--line)}
+  .printer input,.printer select{
+    width:100%;background:#000;border:2px solid var(--blue);color:var(--ink);
+    padding:10px;font-family:inherit;
+  }
+  #tapeCanvas{width:100%;height:auto;background:#000;border:2px solid var(--blue)}
   @media(max-width:800px){
     nav ul{display:none}
     .stats,.grid3,.printer{grid-template-columns:1fr}
@@ -68,9 +93,7 @@
         <li><a href="#engine">Print</a></li>
         <li><a href="#mint">Mint</a></li>
       </ul>
-      <div class="row">
-        <a class="btn" href="https://www.ordihood.art/collections/0x5e670cf56ff645242c076e142ce6409c42aee155231006c22130362ee67fd55e" target="_blank" rel="noopener">Ordihood</a>
-      </div>
+      <a class="btn" href="https://www.ordihood.art/collections/0x5e670cf56ff645242c076e142ce6409c42aee155231006c22130362ee67fd55e" target="_blank" rel="noopener">Ordihood</a>
     </nav>
   </div>
 </header>
@@ -174,13 +197,13 @@
     const w = canvas.width;
     const h = canvas.height;
     ctx.clearRect(0, 0, w, h);
-    ctx.fillStyle = "#0b0b10";
+    ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, w, h);
     if (base.complete && base.naturalWidth) {
       ctx.drawImage(base, 0, 0, w, h);
     }
     const name = (nameInput.value || "CryptoTapes").slice(0, 18);
-    ctx.fillStyle = "#101018";
+    ctx.fillStyle = "#120B0B";
     ctx.font = "600 28px IBM Plex Mono, monospace";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
